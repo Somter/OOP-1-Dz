@@ -3,10 +3,89 @@
 
 #include <iostream>
 using namespace std;    
+class Fraction
+{
+private:
+	int number;		
+
+public:	
+	void Init(int _number)	
+	{
+		number = _number;	
+	}
+
+	Fraction Sum(Fraction Denominator)
+	{
+		Fraction Rezult;
+		Rezult.number = number + Denominator.number;	
+		return Rezult;	
+	}
+	Fraction Subtraction(Fraction Denominator)	
+	{
+		Fraction Rezult;
+		Rezult.number = number - Denominator.number;	
+		return Rezult;		
+	}
+	Fraction Multiplication(Fraction Denominator)	
+	{
+		Fraction Rezult;
+		Rezult.number = number * Denominator.number;	
+		return Rezult;
+	}
+	Fraction Division(Fraction Denominator)
+	{
+		Fraction Rezult;
+		Rezult.number = number / Denominator.number;	
+		return Rezult;
+	}
+	void Print() 
+	{
+		cout << "Result: " << number << endl;	
+	}
+};
 
 int main()
 {
-   
+	int FirstNumber;	
+	int SecondNumber;
+	int choise;
+		cout << "What do you want to do? " << endl;
+		cout << "1 - Add numbers" << endl;
+		cout << "2 - number subtraction" << endl;
+		cout << "3 - Number multiplication" << endl;
+		cout << "4 - dividing numbers" << endl;	
+		cout << "Your choise: ";
+		cin >> choise;
+
+		cout << "Enter first number: ";
+		cin >> FirstNumber;
+		cout << "Enter second number: ";
+		cin >> SecondNumber;	
+		Fraction Numerator;
+		Numerator.Init(FirstNumber);
+
+		Fraction Denominator;
+		Denominator.Init(SecondNumber);
+
+		Fraction Rezult;
+		switch (choise) {
+		case 1:
+			Rezult = Numerator.Sum(Denominator);
+			Rezult.Print();
+			break;
+		case 2:
+			Rezult = Numerator.Subtraction(Denominator);
+			Rezult.Print();
+			break;
+		case 3:
+			Rezult = Numerator.Multiplication(Denominator);
+			Rezult.Print();
+			break;
+		case 4:
+			Rezult = Numerator.Division(Denominator);
+			Rezult.Print();
+			break;
+		}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
